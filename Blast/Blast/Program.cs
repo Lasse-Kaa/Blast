@@ -6,7 +6,8 @@ namespace Blast
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			Console.WriteLine ("Hey Fuckers! this is a BLAST");
+			Console.WriteLine ("amen forstååår det ikke!!!");
 		}
 	}
 }
