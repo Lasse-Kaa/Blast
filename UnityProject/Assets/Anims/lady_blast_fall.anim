@@ -17,8 +17,8 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0
-      value: {fileID: 21300000, guid: 0f332f882fad2b84f93fb8da9d0a7de5, type: 3}
+    - time: -0
+      value: {fileID: 21300000, guid: 76151073e593f684fbf0248029b947ed, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
