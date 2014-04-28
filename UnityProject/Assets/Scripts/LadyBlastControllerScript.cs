@@ -13,6 +13,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	float groundRadius = 0.22f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
+	public int timer = 300000;
 
 	// Reference to animator
 	Animator anim;
@@ -33,6 +34,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		onGround = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		anim.SetBool ("Ground", onGround);
 
+
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 
 		float move = Input.GetAxis ("Horizontal");
@@ -47,7 +49,11 @@ public class LadyBlastControllerScript : MonoBehaviour {
 			Flip ();
 		// If the player is moving to the right and facing left, call Flip
 		else if(move > 0 && facingRight)
+
 			Flip ();
+		if (transform.position.y < -10) {
+			Application.LoadLevel(Application.loadedLevel);		
+		}
 
 
 	}
