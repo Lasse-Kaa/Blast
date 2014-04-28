@@ -10,7 +10,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	// and control the fall animation
 	bool onGround = false;
 	public Transform groundCheck;
-	float groundRadius = 2.0f;
+	float groundRadius = 0.22f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
 
