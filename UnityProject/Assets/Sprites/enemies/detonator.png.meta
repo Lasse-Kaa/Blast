@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: edc3d6e0233084af3819675806dfe4d2
+guid: fc642cbba5e1944fd8ea66401aac3edf
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -41,5 +41,5 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites: []
-  spritePackingTag: coin
+  spritePackingTag: 
   userData: 
