@@ -48,6 +48,8 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		// If the player is moving to the right and facing left, call Flip
 		else if(move > 0 && facingRight)
 			Flip ();
+
+
 	}
 
 	// The jump input is listened for inside Update instead of 
