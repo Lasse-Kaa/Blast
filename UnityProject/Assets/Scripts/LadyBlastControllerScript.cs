@@ -16,6 +16,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	// Reference to animator
 	Animator anim;
+	// useless line of cmment
 	
 	// Use this for initialization
 	void Start () {
