@@ -5,12 +5,29 @@ public class CountDown : MonoBehaviour {
 
 	public float Seconds = 35;
 	public float Minutes = 0;
+	private bool alive = true;
+
+	void Start()
+	{
+
+		Seconds = 35;
+		}
+
+	void die()
+	{
+		print ("You blow! (cock)");
+		// Put in image here
+		}
 
 	void Update ()
 	{
-		if(Seconds <= 0)
+		if(Seconds <= 0 && alive)
 		{
-			Seconds = 35;
+			alive = false;
+			die ();
+
+			// Put in the image
+
 			if(Minutes > 1)
 			{
 				Minutes --;
@@ -25,7 +42,6 @@ public class CountDown : MonoBehaviour {
 				GameObject.Find("TimerText").guiText.text = Minutes.ToString("f0") + ":0" + Seconds.ToString("f0");
 			}
 		}
-
 		else
 		{
 			Seconds -= Time.deltaTime;
