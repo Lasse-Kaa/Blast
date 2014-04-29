@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class PickUpScript : MonoBehaviour {
@@ -19,5 +19,5 @@ public class PickUpScript : MonoBehaviour {
 
 }
 
-
+*/
 
