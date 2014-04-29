@@ -15,7 +15,10 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	public float jumpForce = 700f;
 	public int timer = 300000;
 	public int coinCounter;
+<<<<<<< HEAD
 
+=======
+>>>>>>> FETCH_HEAD
 	// Reference to animator
 	Animator anim;
 
@@ -25,8 +28,13 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	void Start () {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		coinCounter = 0;
 =======
+=======
+		coinCounter = 0;
+
+>>>>>>> FETCH_HEAD
 		GameObject.Find ("dieScreen").renderer.enabled = false;
 
 >>>>>>> FETCH_HEAD
@@ -111,6 +119,26 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	}
 
 
+<<<<<<< HEAD
+=======
+	void OnGUI()
+	{
+		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
+	}
+	
+	
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		if (other.tag == "coin")
+		{
+			coinCounter += 15;
+			Destroy(other.gameObject);
+			Debug.Log("You have gained ");
+		}
+		
+	}
+
+>>>>>>> FETCH_HEAD
 	// Flip takes the world and flips the world 
 	// and the animation to save animation
 	void Flip(){
