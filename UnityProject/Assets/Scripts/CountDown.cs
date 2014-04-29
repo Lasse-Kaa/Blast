@@ -7,16 +7,19 @@ public class CountDown : MonoBehaviour {
 	public float Minutes = 0;
 	private bool alive = true;
 
+	public LadyBlastControllerScript lbcScript;
+
 	void Start()
 	{
-
-		Seconds = 35;
+		lbcScript = GetComponent<LadyBlastControllerScript> ();
+		Seconds = 3;
 		}
 
 	void die()
 	{
 		print ("You blow! (cock)");
 		// Put in image here
+		lbcScript.Restart ();
 		}
 
 	void Update ()
@@ -46,7 +49,6 @@ public class CountDown : MonoBehaviour {
 		{
 			Seconds -= Time.deltaTime;
 		}
-
 
 		// These lines ensures the time is shown as X:XX and not X:XX:XXXXX
 		if(Mathf.Round(Seconds) <= 9)
