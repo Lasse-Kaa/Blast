@@ -1,15 +1,24 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class PickUpScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+
+	private int coinCounter = 0;
+
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		if (info.tag == "coin")
+		{
+			coinCounter = coinCounter + 15;
+			Destroy(other.gameObject);
+			Debug.Log("You have gained X amount of golds!");
+		}
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+
 }
+*/
+
+
