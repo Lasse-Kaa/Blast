@@ -2857,7 +2857,6 @@ GameObject:
   - 114: {fileID: 243913387}
   m_Layer: 0
   m_Name: dollars
-  m_TagString: Untagged
   m_TagString: coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2871,17 +2870,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 243913386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efc88ab402a947489429fe23f843ea4, type: 3}
   m_Script: {fileID: 11500000, guid: 3a62c55d803d74742a7270b6fb62d8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  groundCheck: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  jumpForce: 700
-  timer: 300000
 --- !u!50 &243913388
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2892,7 +2883,6 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -15477,7 +15467,6 @@ GameObject:
   - 114: {fileID: 1626612504}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
