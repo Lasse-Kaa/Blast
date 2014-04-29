@@ -1,17 +1,16 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class PickUpScript : MonoBehaviour {
-
 
 	private int coinCounter = 0;
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		if (info.tag == "coin")
+		if (other.tag == "Player")
 		{
 			coinCounter = coinCounter + 15;
-			Destroy(other.gameObject);
+			Destroy(this.gameObject);
 			Debug.Log("You have gained X amount of golds!");
 		}
 
@@ -19,6 +18,6 @@ public class PickUpScript : MonoBehaviour {
 
 
 }
-*/
+
 
 
