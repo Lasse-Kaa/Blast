@@ -43,18 +43,25 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 		
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+
+		GameObject.Find ("dieScreen").renderer.enabled = false;
 		
 		// If the player is moving to the left and facing right, call Flip
 		if(move < 0 &&!facingRight)
 			Flip ();
 		// If the player is moving to the right and facing left, call Flip
 		else if(move > 0 && facingRight)
-
 			Flip ();
-		if (transform.position.y < -10) {
-			Application.LoadLevel(Application.loadedLevel);		
-		}
 
+		//if (transform.position.y < -10) {
+		//	Application.LoadLevel(Application.loadedLevel);		
+		//}
+
+		if (transform.position.y < -10) {
+			GameObject.Find ("dieScreen").renderer.enabled = true;
+			if (Input.anyKeyDown)
+				Restart ();
+		}
 
 	}
 
@@ -74,5 +81,9 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+	void Restart(){
+		Application.LoadLevel ("Main Menu");
+		Debug.Log ("Died");
 	}
 }
