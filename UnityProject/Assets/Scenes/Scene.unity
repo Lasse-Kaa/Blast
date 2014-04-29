@@ -15613,9 +15613,10 @@ MonoBehaviour:
   groundCheck: {fileID: 714438499}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294965247
+    m_Bits: 4294967295
   jumpForce: .0500000007
   timer: 300000
+  coinCounter: 0
 --- !u!114 &1626612504
 MonoBehaviour:
   m_ObjectHideFlags: 0
