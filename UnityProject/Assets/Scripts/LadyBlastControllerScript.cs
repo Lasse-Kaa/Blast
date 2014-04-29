@@ -14,6 +14,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
 	public int timer = 300000;
+	public int coinCounter;
 
 	// Reference to animator
 	Animator anim;
@@ -22,10 +23,12 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		coinCounter = 0;
 		// Gets component from animator
 		anim = GetComponent<Animator>();
 	}
-	
+
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
@@ -58,6 +61,24 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	}
 
+	void OnGUI()
+	{
+		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
+	}
+
+
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		if (other.tag == "coin")
+		{
+			coinCounter += 15;
+			Destroy(other.gameObject);
+			Debug.Log("You have gained ");
+		}
+
+	}
+
+
 	// The jump input is listened for inside Update instead of 
 	// Fixed Update to make it more accurate. Otherwise the input might be missed
 	void Update(){
@@ -66,6 +87,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 	}
+
 
 	// Flip takes the world and flips the world 
 	// and the animation to save animation
