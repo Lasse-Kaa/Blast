@@ -116,7 +116,8 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	}
 	public void Restart(){
 		//Time.timeScale = 0;
-		// A BETTER WAY TO DO ALL THIS, IS TO USE A NEW SCENE TO SHOW THAT YOU DIED!
+		// When the restart function/the diescreen occurs the movement of the player is set to 0.
+		// This is done to prevent the user from moving the player after the gameover screen has popped up.
 		maxSpeed = 0;
 		jumpForce = 0;
 		transform.position = new Vector3 (0, 0, 0);
