@@ -22,7 +22,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		//set coincounter to 0 in the beginning
 		coinCounter = 0;
 
 		GameObject.Find ("dieScreen").renderer.enabled = false;
@@ -67,7 +67,6 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		if (transform.position.y < -10) {
 			//GameObject.Find ("dieScreen").renderer.enabled = true;
 			Restart();
-
 		}
 
 		if (Input.GetKeyDown("q") && GameObject.Find ("dieScreen").renderer.enabled == true)
@@ -88,7 +87,8 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		}
 	}
 
-
+	//the OnGUI function generates a text label on the screen with a rectangular shape. The content of
+	//the label is "score" and gets the count update from the coinCounter variable.
 	void OnGUI()
 	{
 		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
