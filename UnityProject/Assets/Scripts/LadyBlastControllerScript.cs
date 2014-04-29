@@ -17,13 +17,18 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	// Reference to animator
 	Animator anim;
+
 	// useless line of cmment
 	
 	// Use this for initialization
 	void Start () {
 
+		GameObject.Find ("dieScreen").renderer.enabled = false;
+
 		// Gets component from animator
 		anim = GetComponent<Animator>();
+
+
 	}
 	
 	// Update is called once per frame
@@ -44,7 +49,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 
-		GameObject.Find ("dieScreen").renderer.enabled = false;
+
 		
 		// If the player is moving to the left and facing right, call Flip
 		if(move < 0 &&!facingRight)
@@ -58,9 +63,16 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		//}
 
 		if (transform.position.y < -10) {
-			GameObject.Find ("dieScreen").renderer.enabled = true;
-			if (Input.anyKeyDown)
-				Restart ();
+			//GameObject.Find ("dieScreen").renderer.enabled = true;
+			Restart();
+
+		}
+
+		if (Input.anyKeyDown && GameObject.Find ("dieScreen").renderer.enabled == true)
+		{	
+			GameObject.Find ("dieScreen").renderer.enabled = false;
+			Application.LoadLevel ("Main Menu");
+			Debug.Log ("Died");
 		}
 
 	}
@@ -82,8 +94,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-	void Restart(){
-		Application.LoadLevel ("Main Menu");
-		Debug.Log ("Died");
+	public void Restart(){
+		GameObject.Find ("dieScreen").renderer.enabled = true;
 	}
 }
