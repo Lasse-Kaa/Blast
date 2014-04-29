@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class LadyBlastControllerScript : MonoBehaviour {
-	
+
 	public float maxSpeed = 10f;
 	bool facingRight = true;
 
@@ -15,35 +15,23 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	public float jumpForce = 700f;
 	public int timer = 300000;
 	public int coinCounter;
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
 	// Reference to animator
 	Animator anim;
 
 	// useless line of cmment
-	
+
 	// Use this for initialization
 	void Start () {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-		coinCounter = 0;
-=======
-=======
 		coinCounter = 0;
 
->>>>>>> FETCH_HEAD
 		GameObject.Find ("dieScreen").renderer.enabled = false;
 
->>>>>>> FETCH_HEAD
 		// Gets component from animator
 		anim = GetComponent<Animator>();
 
 
 	}
-
 
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -60,11 +48,11 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 		// Sets parameter Speed to absolute value move
 		anim.SetFloat ("Speed", Mathf.Abs (move));
-		
+
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 
 
-		
+
 		// If the player is moving to the left and facing right, call Flip
 		if(move < 0 &&!facingRight)
 			Flip ();
@@ -91,24 +79,6 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	}
 
-	void OnGUI()
-	{
-		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
-	}
-
-
-	void OnTriggerEnter2D(Collider2D other) 
-	{
-		if (other.tag == "coin")
-		{
-			coinCounter += 15;
-			Destroy(other.gameObject);
-			Debug.Log("You have gained ");
-		}
-
-	}
-
-
 	// The jump input is listened for inside Update instead of 
 	// Fixed Update to make it more accurate. Otherwise the input might be missed
 	void Update(){
@@ -119,14 +89,12 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	}
 
 
-<<<<<<< HEAD
-=======
 	void OnGUI()
 	{
 		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
 	}
-	
-	
+
+
 	void OnTriggerEnter2D(Collider2D other) 
 	{
 		if (other.tag == "coin")
@@ -135,10 +103,9 @@ public class LadyBlastControllerScript : MonoBehaviour {
 			Destroy(other.gameObject);
 			Debug.Log("You have gained ");
 		}
-		
+
 	}
 
->>>>>>> FETCH_HEAD
 	// Flip takes the world and flips the world 
 	// and the animation to save animation
 	void Flip(){

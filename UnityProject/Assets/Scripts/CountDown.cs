@@ -12,7 +12,7 @@ public class CountDown : MonoBehaviour {
 	void Start()
 	{
 		lbcScript = GetComponent<LadyBlastControllerScript> ();
-		Seconds = 35;
+		Seconds = 30;
 		}
 
 	void die()
