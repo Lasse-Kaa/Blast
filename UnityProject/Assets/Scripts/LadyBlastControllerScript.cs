@@ -68,10 +68,10 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 		}
 
-		if (Input.anyKeyDown && GameObject.Find ("dieScreen").renderer.enabled == true)
+		if (Input.GetKeyDown("q") && GameObject.Find ("dieScreen").renderer.enabled == true)
 		{	
 			GameObject.Find ("dieScreen").renderer.enabled = false;
-			Application.LoadLevel ("Main Menu");
+			Application.LoadLevel ("Scene");
 			Debug.Log ("Died");
 		}
 
@@ -95,6 +95,11 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 	public void Restart(){
+		//Time.timeScale = 0;
+		// A BETTER WAY TO DO ALL THIS, IS TO USE A NEW SCENE TO SHOW THAT YOU DIED!
+		maxSpeed = 0;
+		jumpForce = 0;
+		transform.position = new Vector3 (0, 0, 0);
 		GameObject.Find ("dieScreen").renderer.enabled = true;
 	}
 }
