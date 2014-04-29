@@ -14,7 +14,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
 	public int timer = 300000;
-
+	public int coinCounter;
 	// Reference to animator
 	Animator anim;
 
@@ -22,6 +22,8 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+
+		coinCounter = 0;
 
 		GameObject.Find ("dieScreen").renderer.enabled = false;
 
@@ -84,6 +86,24 @@ public class LadyBlastControllerScript : MonoBehaviour {
 			anim.SetBool("Ground", false);
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
+	}
+
+
+	void OnGUI()
+	{
+		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
+	}
+	
+	
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		if (other.tag == "coin")
+		{
+			coinCounter += 15;
+			Destroy(other.gameObject);
+			Debug.Log("You have gained ");
+		}
+		
 	}
 
 	// Flip takes the world and flips the world 
