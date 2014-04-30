@@ -5,13 +5,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	
 	public float maxSpeed = 10f;
 	bool facingRight = true;
-	
-	// Ground state: Will check whether or not the PC is standing on an object
-	// and control the fall animation
-	bool onGround = true;
-	public Transform groundCheck;
-	float groundRadius = 0.5f;
-	public LayerMask whatIsGround;
+
 	public float jumpForce = 700f;
 	public int timer = 300000;
 	public int coinCounter;
