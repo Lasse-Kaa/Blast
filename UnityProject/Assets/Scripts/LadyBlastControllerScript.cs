@@ -141,12 +141,6 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
 	}
 
-	void OnCollisionEnter(Collider other)
-	{
-			 	
-	}
-
-
 	void OnTriggerEnter2D(Collider2D other) 
 	{
 		if (other.tag == "coin")
