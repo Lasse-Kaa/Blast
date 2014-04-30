@@ -128,7 +128,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		prevPosY = transform.position.y;
 		if (Input.GetKeyDown("q") && GameObject.Find ("dieScreen").renderer.enabled == true)
 		{	
-			GameObject.Find ("dieScreen").renderer.enabled = false;
+			//GameObject.Find ("dieScreen").renderer.enabled = false;
 			Application.LoadLevel ("Scene");
 			Debug.Log ("Died");
 		}
@@ -160,13 +160,16 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	// Flip takes the world and flips the world 
 	// and the animation to save animation
-	void Flip(){
+	void Flip()
+	{
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-	public void Restart(){
+
+	public void Restart()
+	{
 		//Time.timeScale = 0;
 		// When the restart function/the diescreen occurs the movement of the player is set to 0.
 		// This is done to prevent the user from moving the player after the gameover screen has popped up.
