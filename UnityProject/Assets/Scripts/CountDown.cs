@@ -11,7 +11,9 @@ public class CountDown : MonoBehaviour {
 
 	void Start()
 	{
+		// Retrieves the script LadyBlastControllerscript
 		lbcScript = GetComponent<LadyBlastControllerScript> ();
+		//sets initial time to 30 seconds. 
 		Seconds = 30;
 		}
 
@@ -24,6 +26,7 @@ public class CountDown : MonoBehaviour {
 
 	void Update ()
 	{
+		//if the time runs out and the player is still alive, the player will die. 
 		if(Seconds <= 0 && alive)
 		{
 			alive = false;
@@ -47,6 +50,7 @@ public class CountDown : MonoBehaviour {
 		}
 		else
 		{
+			//The time in seconds it takes to complete the last frame
 			Seconds -= Time.deltaTime;
 		}
 
