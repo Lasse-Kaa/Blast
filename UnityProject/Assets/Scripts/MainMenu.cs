@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour {
 		if (GUI.Button(new Rect(10,300,100,100), "Quit"))
 		{
 			//Quit function
-			Application.Quit ();
+			Application.Quit();
+			Debug.Log ("not quit?");
 	}
 }
 }

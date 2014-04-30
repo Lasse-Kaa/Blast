@@ -126,10 +126,10 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		
 		
 		prevPosY = transform.position.y;
-		if (Input.GetKeyDown("q") && GameObject.Find ("dieScreen").renderer.enabled == true)
+		if (Input.anyKeyDown && GameObject.Find ("dieScreen").renderer.enabled == true)
 		{	
 			//GameObject.Find ("dieScreen").renderer.enabled = false;
-			Application.LoadLevel ("Scene");
+			Application.LoadLevel ("Main Menu");
 			Debug.Log ("Died");
 		}
 	}
