@@ -4,6 +4,7 @@
 TagManager:
   tags:
   - coin
+  - ground
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

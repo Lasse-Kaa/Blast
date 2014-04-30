@@ -8,15 +8,17 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	// Ground state: Will check whether or not the PC is standing on an object
 	// and control the fall animation
-	bool onGround = false;
+	bool onGround = true;
 	public Transform groundCheck;
-	float groundRadius = 0.22f;
+	float groundRadius = 0.5f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
 	public int timer = 300000;
 	public int coinCounter;
 	// Reference to animator
 	Animator anim;
+
+	private float prevPosY; 	 	
 
 	// useless line of cmment
 
@@ -25,7 +27,7 @@ public class LadyBlastControllerScript : MonoBehaviour {
 		//set coincounter to 0 in the beginning
 		coinCounter = 0;
 
-		GameObject.Find ("dieScreen").renderer.enabled = false;
+		GameObject.Find("dieScreen").renderer.enabled = false;
 
 		// Gets component from animator
 		anim = GetComponent<Animator>();
@@ -33,13 +35,50 @@ public class LadyBlastControllerScript : MonoBehaviour {
 
 	}
 
+	Vector2 playerPos; 
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		playerPos = new Vector2(transform.position.x, transform.position.y - 2);
+
 		// Will check whether or not the PC is touching anything. 
 		// If result is true, PC is on the ground
-		onGround = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+		onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+
+		/*
+		Vector2 ray = transform.TransformDirection(-Vector2.up);
+		Debug.DrawRay(playerPos, ray);
+		RaycastHit2D hit = Physics2D.Raycast(playerPos, ray);
+		if (hit != null) 
+		{
+			if(hit != GameObject.Find("Player"))
+			{
+				print ("Hit: " + hit.collider.name);
+				onGround = true;
+			}
+		}
+		*/
+
+		/*
+		RaycastHit[] hits;
+		hits = Physics.RaycastAll(transform.position, transform.forward, 100.0F);
+		int i = 0;
+		while (i < hits.Length) {
+			RaycastHit hit = hits[i];
+			print (hit);
+			i++;
+		}
+		*/
+		
+		
+		
+ 			
+		
 		anim.SetBool ("Ground", onGround);
+		// print (Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround));
+		print (onGround);
+		// print (whatIsGround);
 
 
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
@@ -69,21 +108,29 @@ public class LadyBlastControllerScript : MonoBehaviour {
 			Restart();
 		}
 
-		if (Input.GetKeyDown("q") && GameObject.Find ("dieScreen").renderer.enabled == true)
-		{	
-			GameObject.Find ("dieScreen").renderer.enabled = false;
-			Application.LoadLevel ("Scene");
-			Debug.Log ("Died");
-		}
+		// TAKEN FROM UPDATE
 
+		
 	}
 
 	// The jump input is listened for inside Update instead of 
 	// Fixed Update to make it more accurate. Otherwise the input might be missed
 	void Update(){
-		if(onGround && Input.GetButtonDown("Jump")){
-			anim.SetBool("Ground", false);
+
+		if(transform.position.y > prevPosY-0.01f && transform.position.y < prevPosY+0.01f && Input.GetButtonDown("Jump")){
+			print ("hej");
+			onGround = false;
+			//anim.SetBool("Ground", false);
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+		}
+		
+		
+		prevPosY = transform.position.y;
+		if (Input.GetKeyDown("q") && GameObject.Find ("dieScreen").renderer.enabled == true)
+		{	
+			GameObject.Find ("dieScreen").renderer.enabled = false;
+			Application.LoadLevel ("Scene");
+			Debug.Log ("Died");
 		}
 	}
 
@@ -92,6 +139,11 @@ public class LadyBlastControllerScript : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.Label (new Rect (10, 10, 150, 100), "Score: " + coinCounter);
+	}
+
+	void OnCollisionEnter(Collider other)
+	{
+			 	
 	}
 
 
